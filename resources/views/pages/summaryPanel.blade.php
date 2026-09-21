@@ -8,6 +8,9 @@
         <div class="card-body p-4">
             <h5 class="card-title fw-semibold mb-4">Summary Panel</h5>
             @foreach ($majorcategories as $key => $categories )
+            @php
+                $totalRow = collect($categories['value'] ?? [])->last();
+            @endphp
             <div class="accordion mb-2" id="accordion{{$key}}">
                 <div class="accordion-item">
                     <h2 class="accordion-header bg-dark">
@@ -24,24 +27,24 @@
                             </div>
                             <div class="col-md-1">
                                 <span
-                                    class="badge mx-auto bg-primary rounded-3 fw-semibold">{{$categories['value'][count($categories)-1]['total']}}
+                                    class="badge mx-auto bg-primary rounded-3 fw-semibold">{{ data_get($totalRow, 'total', 0) }}
                                 </span>
                             </div>
                             <div class="col-md-1">
                                 <span
-                                    class="badge mx-auto bg-danger rounded-3 fw-semibold">{{$categories['value'][count($categories)-1]['sent']}}</span>
+                                    class="badge mx-auto bg-danger rounded-3 fw-semibold">{{ data_get($totalRow, 'sent', 0) }}</span>
                             </div>
                             <div class="col-md-1">
                                 <span
-                                    class="badge mx-auto bg-warning rounded-3 fw-semibold">{{$categories['value'][count($categories)-1]['pending']}}</span>
+                                    class="badge mx-auto bg-warning rounded-3 fw-semibold">{{ data_get($totalRow, 'pending', 0) }}</span>
                             </div>
                             <div class="col-md-1">
                                 <span
-                                    class="badge mx-auto bg-success rounded-3 fw-semibold">{{$categories['value'][count($categories)-1]['approved']}}</span>
+                                    class="badge mx-auto bg-success rounded-3 fw-semibold">{{ data_get($totalRow, 'approved', 0) }}</span>
                             </div>
                             <div class="col-md-1">
                                 <span
-                                    class="badge mx-auto bg-badar rounded-3 fw-semibold">{{$categories['value'][count($categories)-1]['rejected']}}</span>
+                                    class="badge mx-auto bg-badar rounded-3 fw-semibold">{{ data_get($totalRow, 'rejected', 0) }}</span>
                             </div>
                         </div>
 
@@ -84,34 +87,35 @@
                                             </td>
                                             <td class="border-bottom-0">
                                                 <h6 class="fw-semibold mb-1 text-capitalize">
-                                                    {{$category['entity_name']}}
+                                                    {{ data_get($category, 'entity_name', 'N/A') }}
+                                                </h6>
                                             </td>
                                             <td class="border-bottom-0">
                                                 <span
-                                                    class="badge mx-auto bg-primary rounded-3 fw-semibold">{{$category['total']}}</span>
+                                                    class="badge mx-auto bg-primary rounded-3 fw-semibold">{{ data_get($category, 'total', 0) }}</span>
                                             </td>
                                             <td class="border-bottom-0">
                                                 <div class="d-flex align-items-center gap-2">
                                                     <span
-                                                        class="badge mx-auto bg-danger rounded-3 fw-semibold">{{$category['sent']}}</span>
+                                                        class="badge mx-auto bg-danger rounded-3 fw-semibold">{{ data_get($category, 'sent', 0) }}</span>
                                                 </div>
                                             </td>
                                             <td class="border-bottom-0">
                                                 <div class="d-flex align-items-center gap-2">
                                                     <span
-                                                        class="badge mx-auto bg-warning rounded-3 fw-semibold">{{$category['pending']}}</span>
+                                                        class="badge mx-auto bg-warning rounded-3 fw-semibold">{{ data_get($category, 'pending', 0) }}</span>
                                                 </div>
                                             </td>
                                             <td class="border-bottom-0">
                                                 <div class="d-flex align-items-center gap-2">
                                                     <span
-                                                        class="badge mx-auto bg-success rounded-3 fw-semibold">{{$category['approved']}}</span>
+                                                        class="badge mx-auto bg-success rounded-3 fw-semibold">{{ data_get($category, 'approved', 0) }}</span>
                                                 </div>
                                             </td>
                                             <td class="border-bottom-0">
                                                 <div class="d-flex align-items-center gap-2">
                                                     <span
-                                                        class="badge mx-auto bg-badar rounded-3 fw-semibold">{{$category['rejected']}}</span>
+                                                        class="badge mx-auto bg-badar rounded-3 fw-semibold">{{ data_get($category, 'rejected', 0) }}</span>
                                                 </div>
                                             </td>
                                         </tr>
