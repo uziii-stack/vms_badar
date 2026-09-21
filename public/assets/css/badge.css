@@ -1,0 +1,61 @@
+@media print {
+    @page {
+        size: landscape;
+    }
+
+    /* body {
+        writing-mode: tb-rl;
+    } */
+    .operationClass {
+        display: none !important;
+    }
+
+    .badge-parent {
+        width: 1255.17mm;
+        height: 52.75mm;
+        padding: 120px 0px !important;
+    }
+
+    h5,
+    h6 {
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        width: 290px;
+    }
+}
+
+/* @page {
+    size: 266mm 165mm;
+} */
+
+.badge-parent {
+    height: 52.75mm;
+    padding: 120px 0px !important;
+}
+
+h5,
+h6 {
+    overflow: hidden;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    width: 290px;
+    color: black;
+}
+
+@media print {
+    .btn-outline-primary,
+    .btn-outline-secondary,
+    .btn-outline-info,
+    .btn-contain {
+        display: none;
+    }
+    .container-fluid {
+        margin-top: -20px !important;
+        padding-top: -20px !important;
+    }
+}
